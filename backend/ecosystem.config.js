@@ -22,7 +22,7 @@ module.exports = {
       repo: REPO_URL,
       path: DEPLOY_PATH,
       'ssh_options': 'StrictHostKeyChecking=no',
-      'pre-deploy': 'scp ./backend/.env user@158.160.154.218:/home/user/nodejs-pm2-deploy/current/backend',
+      'pre-deploy': `scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/current/backend`,
       'post-deploy': 'cd backend && export PATH=$PATH:/home/user/.nvm/versions/node/v22.22.2/bin && npm install && npm run build && pm2 reload ecosystem.config.js --env production',
     },
   },

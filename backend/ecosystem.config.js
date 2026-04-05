@@ -1,5 +1,10 @@
 require('dotenv').config({ path: '../.env.deploy' });
 
+const {
+  DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REF = 'origin/master', DEPLOY_SSH_KEY, REPO_URL
+} = process.env;
+
+
 module.exports = {
   apps: [{
     name: 'api-service',
@@ -10,12 +15,12 @@ module.exports = {
 
   deploy: {
     production: {
-      user: 'user',
-      host: '158.160.154.218',
-      key: 'C:/Users/aleks/.ssh/vm_access/privatekey',
-      ref: 'origin/master',
-      repo: 'git@github.com:AlekseiPivovarov/nodejs-pm2-deploy.git',
-      path: '/home/user/nodejs-pm2-deploy',
+      user: DEPLOY_USER,
+      host: DEPLOY_HOST,
+      key: DEPLOY_SSH_KEY,
+      ref: DEPLOY_REF,
+      repo: REPO_URL,
+      path: DEPLOY_PATH,
       'ssh_options': 'StrictHostKeyChecking=no',
       'post-deploy': 'cd backend && export PATH=$PATH:/home/user/.nvm/versions/node/v22.22.2/bin && npm install && npm run build && pm2 reload ecosystem.config.js --env production',
     },

@@ -14,7 +14,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: REPO_URL,
       path: DEPLOY_PATH,
-      'post-deploy': 'cd frontend && export PATH=$PATH:/home/user/.nvm/versions/node/v22.22.2/bin && export NODE_OPTIONS=--openssl-legacy-provider && npm install && npm run build'
+      'post-deploy': 'source ~/.nvm/nvm.sh && nvm use default && cd frontend && export NODE_OPTIONS=--openssl-legacy-provider && npm install && npm run build'
     },
   },
 }; 

@@ -1,3 +1,5 @@
+require('dotenv').config({ path: '../.env.deploy' });
+
 module.exports = {
   apps: [{
     name: 'api-service',
@@ -15,7 +17,7 @@ module.exports = {
       repo: 'git@github.com:AlekseiPivovarov/nodejs-pm2-deploy.git',
       path: '/home/user/nodejs-pm2-deploy',
       'ssh_options': 'StrictHostKeyChecking=no',
-      'post-deploy': 'export PATH=$PATH:/home/user/.nvm/versions/node/v22.22.2/bin && npm install && npm run build && pm2 reload ecosystem.config.js --env production',
+      'post-deploy': 'cd backend && export PATH=$PATH:/home/user/.nvm/versions/node/v22.22.2/bin && npm install && npm run build && pm2 reload ecosystem.config.js --env production',
     },
   },
 };

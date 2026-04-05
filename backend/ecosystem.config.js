@@ -22,7 +22,7 @@ module.exports = {
       repo: REPO_URL,
       path: DEPLOY_PATH,
       'ssh_options': 'StrictHostKeyChecking=no',
-      'pre-deploy': `scp .env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/current/backend`,
+      'pre-deploy': `echo "Current dir: $(pwd)" && echo "Files: $(ls -la)" && scp .env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/current/backend`,
       'post-deploy': 'cd backend && export PATH=$PATH:/home/user/.nvm/versions/node/v22.22.2/bin && npm install && npm run build && pm2 reload ecosystem.config.js --env production',
     },
   },

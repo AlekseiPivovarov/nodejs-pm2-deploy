@@ -6,7 +6,6 @@ const {
 
 
 module.exports = {
- 
   deploy: {
     production: {
       user: DEPLOY_USER,
@@ -15,7 +14,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: REPO_URL,
       path: DEPLOY_PATH,
-      'post-deploy': 'cd frontend && export PATH=$PATH:/home/user/.nvm/versions/node/v22.22.2/bin && export NODE_OPTIONS=--openssl-legacy-provider && npm install && npm run build && pm2 reload ecosystem.config.js --env production'
+      'post-deploy': 'cd frontend && export PATH=$PATH:/home/user/.nvm/versions/node/v22.22.2/bin && export NODE_OPTIONS=--openssl-legacy-provider && npm install && npm run build'
     },
   },
 }; 

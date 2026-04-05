@@ -10,7 +10,6 @@ module.exports = {
     name: 'api-service',
     script: './dist/app.js',
     cwd: '/home/user/nodejs-pm2-deploy/current/backend',
-    interpreter: "/home/user/.nvm/versions/node/v22.22.2/bin/node",
   }],
 
   deploy: {

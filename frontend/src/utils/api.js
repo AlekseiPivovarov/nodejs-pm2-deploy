@@ -139,7 +139,7 @@ class Api {
   }
   }
   // Замените на адрес вашего бэкенда
-  const api = new Api('api.deploy-pm2.nomorepartiessite.ru');
+  const api = new Api('https://api.deploy-pm2.nomorepartiessite.ru');
   
   export default api;
   

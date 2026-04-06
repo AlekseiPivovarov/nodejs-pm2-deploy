@@ -10,10 +10,6 @@ module.exports = {
     name: 'api-service',
     script: './dist/app.js',
     cwd: '/home/user/nodejs-pm2-deploy/current/backend',
-    // env: {
-    //   NODE_ENV: 'production',
-    //   PORT: 3001
-    // }
   }],
 
   deploy: {
